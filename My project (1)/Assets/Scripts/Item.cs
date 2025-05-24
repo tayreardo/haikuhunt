@@ -53,15 +53,16 @@ public class Item : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.gameObject.tag=="Player" && dialogueActivated == true)
+        if(collision.gameObject.tag=="Player")
         {
-            inventoryManager.AddItem(itemName, quantity, sprite);
-            Destroy(gameObject);
             
             dialogueCanvas.SetActive(true);
             itemText.text = item[0];
             haikuText.text = haiku[0];
             portraitImage.sprite = portrait[0];
+
+            inventoryManager.AddItem(itemName, quantity, sprite);
+            Destroy(gameObject);
         
         }
     }
